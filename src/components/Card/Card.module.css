@@ -7,6 +7,11 @@
 
   padding: 16px;
   border-bottom: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  transition: transform 180ms ease, box-shadow 220ms ease,
+    background-color 220ms ease;
+  will-change: transform, box-shadow;
 }
 
 .content {
@@ -42,6 +47,8 @@
 
 .avatar {
   border-radius: 40px;
+  transition: transform 220ms ease, filter 220ms ease;
+  will-change: transform, filter;
 }
 
 .time {
@@ -74,6 +81,20 @@
 
   background: var(--text-primary);
   color: var(--on-primary);
+  transition: transform 180ms ease, box-shadow 200ms ease,
+    background-color 200ms ease, opacity 200ms ease;
+  will-change: transform, box-shadow;
+}
+
+.subscribeButton:hover,
+.subscribeButton:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.subscribeButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12) inset;
 }
 
 .threeDots {
@@ -81,6 +102,73 @@
   height: 36px;
   background-color: transparent;
   border: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease;
+  will-change: transform, background-color, box-shadow;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.card:focus-visible {
+  outline: 1px solid rgba(0, 112, 243, 0.45);
+  outline-offset: 1px;
+}
+
+.card:hover .avatar,
+.card:focus-within .avatar {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+.threeDots:hover,
+.threeDots:focus-visible {
+  background-color: rgba(0, 0, 0, 0.06);
+  transform: scale(1.05) rotate(90deg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card:hover,
+  .card:focus-visible {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .threeDots:hover,
+  .threeDots:focus-visible {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .subscribeButton:hover,
+  .subscribeButton:focus-visible {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .avatar,
+  .threeDots,
+  .subscribeButton {
+    transition: none;
+  }
+
+  .threeDots:hover,
+  .threeDots:focus-visible,
+  .card:hover,
+  .card:focus-visible,
+  .subscribeButton:hover,
+  .subscribeButton:focus-visible {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -97,9 +185,6 @@
 
   .message {
     margin-bottom: 20px;
-  }
-
-  .actions {
   }
 
   .absoluteActions {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '@/src/widgets/Header';
-import { getNotificationDetails } from '@/src/entities/notification/api/getNotificationDetails';
+import { getNotificationDetails } from '@/src/entities/notification/api';
 import { CardListWithNavigation } from '@/src/widgets/CardListWithNavigation';
 
 interface PageProps {
@@ -9,6 +9,7 @@ interface PageProps {
 
 export default async function Page({ params }: PageProps) {
   const { notificationType, id } = await params;
+
   const notifications = await getNotificationDetails({
     type: notificationType,
     id,
