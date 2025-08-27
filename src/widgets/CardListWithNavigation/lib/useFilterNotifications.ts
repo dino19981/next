@@ -21,5 +21,5 @@ export const useFilterNotifications = ({ data, activeTab }: Props) => {
     const types = validTypesByTab[activeTab];
 
     return data.filter((item) => types.includes(item.type));
-  }, [activeTab]);
+  }, [activeTab, data]);
 };

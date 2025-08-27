@@ -22,5 +22,5 @@ export enum NotificationType {
   Repost = 'repost',
   Like = 'like',
   Comment = 'comment',
-  Subscribe = 'subscribe',
+  Subscribe = 'subscription',
 }

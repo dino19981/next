@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '@/src/widgets/Header';
 import { getNotificationDetails } from '@/src/entities/notification/api';
-import { CardListWithNavigation } from '@/src/widgets/CardListWithNavigation';
+import { DetailsList } from '@/src/widgets/DetailsList';
 
 interface PageProps {
   params: Promise<{ notificationType: string; id: string }>;
@@ -19,10 +19,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <Header />
       <main>
-        <CardListWithNavigation
-          initialNotifications={notifications}
-          withNavigation={false}
-        />
+        <DetailsList notifications={notifications} />
       </main>
     </>
   );

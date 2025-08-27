@@ -4,6 +4,13 @@
   gap: 16px;
 }
 
+.skeletonCard {
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--background-color);
+}
+
 .cardList > div:first-of-type {
   border-top: 1px solid var(--border-color);
 }

@@ -1,16 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { getNotifications } from '../api';
 import { QueryKey } from '@/src/shared/api/constants/queryKey';
-import { NotificationsDto } from '../types';
 
 interface Props {
-  initialData: NotificationsDto;
+  limit: number;
 }
 
-export const useGetNotifications = ({ initialData }: Props) => {
+export const useGetNotifications = ({ limit }: Props) => {
   return useQuery({
     queryKey: [QueryKey.Notifications],
-    queryFn: async () => getNotifications(),
-    initialData,
+    queryFn: async () => getNotifications({ limit }),
   });
 };
